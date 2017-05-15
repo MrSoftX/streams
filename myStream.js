@@ -28,7 +28,7 @@ class StreamManager{
     //                         "polarity": polarity
     //                         });
 
-     );
+   }
 
      stream.on('error', function(err){
        console.log(err);
