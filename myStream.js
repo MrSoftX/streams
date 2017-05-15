@@ -28,7 +28,7 @@ class StreamManager{
     //                         "polarity": polarity
     //                         });
 
-   }
+   /*}
 
      stream.on('error', function(err){
        console.log(err);
@@ -50,7 +50,7 @@ class StreamManager{
 
     },10000);
   }
-}
+}*/
 
 function getStreamManager() {
   return new StreamManager();
