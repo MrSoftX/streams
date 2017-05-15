@@ -1,0 +1,21 @@
+SearchAction esquema para streams
+
+id_stream ---> identifier
+track ----> query
+owner ----> agent
+fecha -----> endTime
+URI ------> @id
+
+
+Ejemplo JSON-LD
+{
+  "@context": "http://schema.org",
+  "@type": "SearchAction",
+  "agent": {
+    "@type": "Person",
+    "name": "John"
+  },
+  "@id": "uri del stream",
+  "identifier": "nombre del stream",
+  "query": "track"
+}

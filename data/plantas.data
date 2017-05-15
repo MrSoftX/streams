@@ -1,0 +1,3 @@
+{"query":{"@context":"http://schema.org","@type":"SearchAction","agent":{"@type":"Person","name":"John"},"endDate":"2017-04-03T15:03:26.818Z","@id":"http://localhost:8000/data/plantas.data","identifier":"plantas","query":"rosas,hierba"},"_type":"metadata","_n":0,"_dt":"2017-04-03T15:03:26.841Z"}
+{"id_str":"848913825806069760","coordinates":null,"text":"RT @IndiesFrases: Terraza de vino y rosas.","polarity":0,"_dt":"2017-04-03T15:03:29.837Z","_id":0,"_n":1}
+{"id_str":"848913832886116353","coordinates":null,"text":"RT @leandrovaldes12: El cumpleaños 112 nos encuentra punteros y con HUA, con plumas rosas y las de luto a la cabeza, llorando por doquier.…","polarity":-2,"_dt":"2017-04-03T15:03:31.553Z","_id":1,"_n":2}
