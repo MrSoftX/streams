@@ -28,7 +28,7 @@ class StreamManager{
                             "polarity": polarity
                             });
 
-  });
+     });
 
      stream.on('error', function(err){
        console.log(err);
@@ -37,7 +37,7 @@ class StreamManager{
 
      //Borramos el stream para que no se quede abierto
      this.deleteStream(name,callback);
-}
+   }
 
   deleteStream(name,callback){
     //borrar del diccionario y destruir stream name
@@ -50,7 +50,7 @@ class StreamManager{
 
     },10000);
   }
-
+}
 
 function getStreamManager() {
   return new StreamManager();
