@@ -1,7 +1,7 @@
 const Twitter = require('twitter')
-// const myCreds = require('./credentials/my-credential.json');
-//
-// const client = new Twitter(myCreds);
+const myCreds = require('./credentials/my-credential.json');
+
+const client = new Twitter(myCreds);
 const sentiment = require('sentiment-spanish');
 
 const storage = require ('./myStorage.js');
@@ -13,22 +13,22 @@ class StreamManager{
    }
 
    addStream(name,jsonld,callback){
-    //  var stream = client.stream('statuses/filter', {track: jsonld.query});
-    //  this.streams[name] = stream;
-    //  //Añadimos a la base de datos
-    //  myDB.createDataset(name,{"query":jsonld});
-    //  stream.on('data', function(tweet) {
-    //    //Add stream to dictionary
-     //
-    //   var polarity = sentiment(tweet.text).score;
-    //   myDB.insertObject(name,{
-    //                         "id_str": tweet.id_str,
-    //                         "coordinates": tweet.coordinates,
-    //                         "text": tweet.text,
-    //                         "polarity": polarity
-    //                         });
+     var stream = client.stream('statuses/filter', {track: jsonld.query});
+     this.streams[name] = stream;
+     //Añadimos a la base de datos
+     myDB.createDataset(name,{"query":jsonld});
+     stream.on('data', function(tweet) {
+       //Add stream to dictionary
+     
+      var polarity = sentiment(tweet.text).score;
+      myDB.insertObject(name,{
+                            "id_str": tweet.id_str,
+                            "coordinates": tweet.coordinates,
+                            "text": tweet.text,
+                            "polarity": polarity
+                            });
 
-   /*}
+  }
 
      stream.on('error', function(err){
        console.log(err);
@@ -37,7 +37,7 @@ class StreamManager{
 
      //Borramos el stream para que no se quede abierto
      this.deleteStream(name,callback);
-   }
+
 
   deleteStream(name,callback){
     //borrar del diccionario y destruir stream name
@@ -50,7 +50,7 @@ class StreamManager{
 
     },10000);
   }
-}*/
+}
 
 function getStreamManager() {
   return new StreamManager();
