@@ -47,7 +47,7 @@
 	   $(document).ready(function recargar(){
        var streams = [];
 			 //Obtenemos la lista de streams$.getJSON( flickerAPI, {
-			 $.getJSON( 'http://localhost:8000/streams', {
+			 $.getJSON( 'http://streams-streams.7e14.starter-us-west-2.openshiftapps.com/streams', {
 					 format: "json"
 			 }).done(function(data){
 				  streams = data.result;
@@ -71,7 +71,7 @@
 					//  addButton(newdata);
 					//  streams.push(newdata);
 					//Realizamos la llamada post para añadir el nuevo stream
-					$.post( "http://localhost:8000/stream", { "name": newdata, "track": queryData })
+					$.post( "http://streams-streams.7e14.starter-us-west-2.openshiftapps.com/stream", { "name": newdata, "track": queryData })
 				  .done(function( data ) {
 						//Limpiamos la lista
 						$("#streamlist").empty();
@@ -93,7 +93,7 @@
 		var streamname=data.getAttribute("id");
 		var lwords;
 		//Realizamos la llamada para obtener las 20 palabras del stream
-		$.getJSON( 'http://localhost:8000/stream/'+streamname+'/words?top=20', {
+		$.getJSON( 'http://streams-streams.7e14.starter-us-west-2.openshiftapps.com/stream/'+streamname+'/words?top=20', {
 				format: "json"
 		}).done(function(data){
 			 lwords  = data.result;
@@ -109,21 +109,21 @@
 			 //draw polatities
 			 var polarity;
 			 //Obtenemos los id de los ultimos 5 tweets y los actualizamos
-			 $.getJSON( 'http://localhost:8000/stream/'+streamname+'?limit=5', {
+			 $.getJSON( 'http://streams-streams.7e14.starter-us-west-2.openshiftapps.com/stream/'+streamname+'?limit=5', {
 	 				format: "json"
 	 		}).done(function(data){
 					var lastTweets = data.result;
 					update_last_tweets(lastTweets);
 			});
 			//Obtenemos los ultimos 5 tweets del stream
-			$.getJSON( 'http://localhost:8000/stream/'+streamname+'/polaridad', {
+			$.getJSON( 'http://streams-streams.7e14.starter-us-west-2.openshiftapps.com/'+streamname+'/polaridad', {
 				 format: "json"
 		 }).done(function(data){
 				 polarity = data.result;
 				 update_polar(polarity);
 		 });
 		 //Obtenemos la geolocalizacion
-		 $.getJSON( 'http://localhost:8000/stream/'+streamname+'/geo', {
+		 $.getJSON( 'http://streams-streams.7e14.starter-us-west-2.openshiftapps.com/stream/'+streamname+'/geo', {
 				format: "json"
 		}).done(function(data){
 				var tweetsCoordinates = data.result;
