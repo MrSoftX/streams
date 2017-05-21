@@ -116,7 +116,7 @@
 					update_last_tweets(lastTweets);
 			});
 			//Obtenemos los ultimos 5 tweets del stream
-			$.getJSON( 'http://streams-streams.7e14.starter-us-west-2.openshiftapps.com/'+streamname+'/polaridad', {
+			$.getJSON( 'http://streams-streams.7e14.starter-us-west-2.openshiftapps.com/stream/'+streamname+'/polaridad', {
 				 format: "json"
 		 }).done(function(data){
 				 polarity = data.result;
